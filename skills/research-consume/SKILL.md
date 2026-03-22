@@ -7,6 +7,13 @@ description: Use when research documents need processing into verified meta-know
 
 <overview>
 Consume research documents into verified, growing meta-research papers. Every claim gets verified. Originals get archived. Meta-docs are the living knowledge base.
+
+Based on the Karpathy autoresearch pattern (verified: Fortune, VentureBeat, 26K GitHub stars):
+- **Editable asset**: The meta-doc is the asset that improves with each cycle
+- **Scalar metric**: Claims verified count, depth/accuracy scores, compression ratio (raw bytes consumed vs meta-doc growth)
+- **Time box**: Max 3 docs per cycle, ~100K tokens budget, 8 min per doc
+
+Each cycle: read what you know (meta-doc) → consume what's new (raw docs) → verify claims → improve the asset → archive consumed inputs. The meta-docs compound over time — each cycle makes them more verified, more compressed, more useful.
 </overview>
 
 <setup>
