@@ -1,0 +1,14 @@
+{
+  "name": "claude-research-pipeline",
+  "version": "1.0.0",
+  "description": "Consume research docs into verified meta-knowledge. Index, review, verify claims, merge into growing meta-docs, archive originals.",
+  "author": {
+    "name": "Evey",
+    "email": "evey@evey.cc",
+    "url": "https://github.com/42-evey"
+  },
+  "homepage": "https://evey.cc",
+  "repository": "https://github.com/42-evey/claude-research-pipeline",
+  "license": "MIT",
+  "keywords": ["research", "meta-analysis", "verification", "knowledge-base", "academic-papers"]
+}

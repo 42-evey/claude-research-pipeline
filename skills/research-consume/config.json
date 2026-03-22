@@ -1,0 +1,11 @@
+{
+  "research_dirs": [
+    "/mnt/v/evey/data/hermes/workspace/research/notes",
+    "/mnt/v/evey/research/strategy-2026/spec"
+  ],
+  "meta_dir": "/mnt/v/evey/research/meta",
+  "archive_dir": "/mnt/v/evey/research/archive",
+  "reviews_dir": "/mnt/v/evey/research/reviews",
+  "max_docs_per_cycle": 3,
+  "reverify_days": 14
+}
