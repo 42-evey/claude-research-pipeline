@@ -148,8 +148,27 @@ Each agent's prompt MUST include:
 4. The output path for the updated meta-doc
 5. The archive commands to run after writing
 
-Agent model tiers:
-- **Haiku**: Simple categorization, indexing
-- **Sonnet**: Document review, web search verification (DEFAULT for consume)
-- **Opus**: Deep synthesis, resolving complex contradictions
+## Model Tier Strategy (min-max efficiency)
+
+The consume agent MUST be **Opus** — it reads 700+ line meta-docs, synthesizes new findings, resolves contradictions. This is deep reasoning work.
+
+The Opus agent should dispatch its own sub-agents for mechanical tasks:
+- **Haiku sub-agents**: Categorize docs, extract basic metadata, format tables
+- **Sonnet sub-agents**: Run WebSearch verification, fetch paper abstracts, check URLs
+- **Opus (self)**: Read existing meta-doc, compare with new findings, write synthesis, resolve contradictions
+
+This means: dispatch the main consume agent as `model: "opus"`. That agent can internally use the Agent tool to spawn Haiku/Sonnet helpers for the grunt work (web search, data extraction) while it focuses on the thinking.
+
+```
+Opus (main agent)
+  ├── reads existing meta-doc
+  ├── reads raw docs
+  ├── dispatches Sonnet → WebSearch verification (parallel)
+  ├── dispatches Haiku → format/extract claims (parallel)
+  ├── waits for sub-results
+  ├── synthesizes everything into updated meta-doc
+  └── archives originals
+```
+
+**NEVER dispatch the main consume agent as Sonnet or Haiku.** Always Opus.
 </agent-dispatch>
