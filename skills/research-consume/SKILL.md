@@ -68,6 +68,9 @@ Assign each claim a status:
 | DISPUTED | Sources contradict each other | < 0.3 |
 | OUTDATED | Was true, may no longer be | needs re-check |
 | RETRACTED | Confirmed false, kept for audit | 0.0 |
+
+**TIME-SENSITIVE CLAIMS**: Any claim about pricing, free tiers, model availability, API limits, user counts, or market size MUST include the verification date: `VERIFIED (2026-03-22)`. These decay fast — re-verify every 7 days, not 14.
+| RETRACTED | Confirmed false, kept for audit | 0.0 |
 </verification-states>
 
 ### Step 5: Update Meta-Doc
@@ -93,9 +96,9 @@ Assign each claim a status:
 [Compressed, verified, high-value knowledge]
 
 ## Claims & Verification
-| Claim | Status | Confidence | Source |
-|-------|--------|------------|--------|
-[all claims with verification status]
+| Claim | Status | Confidence | Verified | Source |
+|-------|--------|------------|----------|--------|
+[all claims — time-sensitive ones MUST have date in Verified column]
 
 ## Actionable Insights
 [What to do with this knowledge — specific to our stack/goals]
