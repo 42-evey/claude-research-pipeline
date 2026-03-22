@@ -125,5 +125,28 @@ Note what you consumed in the cycle log.
 - Archive originals after consuming — research dirs should SHRINK
 - If a claim can't be verified, mark it UNVERIFIED not VERIFIED
 - Re-verify meta-doc claims every 14 days
-- When dispatching agents: include the meta-doc content AND raw doc content in the prompt
 </rules>
+
+<agent-dispatch>
+## Agent Dispatch Rules
+
+**ONE agent per meta-doc. No exceptions.**
+
+When dispatching subagents to consume docs:
+- Each agent works on exactly ONE meta-doc (one category)
+- If you have 3 docs across 3 categories → dispatch 3 separate agents
+- If you have 3 docs in the SAME category → dispatch 1 agent for all 3
+- Never have one agent update multiple meta-docs — they will conflict
+
+Each agent's prompt MUST include:
+1. The full text of the EXISTING meta-doc (so it knows what's already known)
+2. The full text of the raw doc(s) to consume
+3. The verification states table
+4. The output path for the updated meta-doc
+5. The archive commands to run after writing
+
+Agent model tiers:
+- **Haiku**: Simple categorization, indexing
+- **Sonnet**: Document review, web search verification (DEFAULT for consume)
+- **Opus**: Deep synthesis, resolving complex contradictions
+</agent-dispatch>
